@@ -16,7 +16,7 @@ class NerdController extends Controller
     {
         $nerds = Nerd::all();
 
-        return view('nerd.index', $nerds);
+        return view('nerd.index', compact('nerds'));
     }
 
     /**
@@ -51,7 +51,7 @@ class NerdController extends Controller
      */
     public function show(Nerd $nerd)
     {
-        return view('nerd.show', $nerd);
+        return view('nerd.show', compact('nerd'));
     }
 
     /**
@@ -63,7 +63,7 @@ class NerdController extends Controller
      */
     public function edit(Nerd $nerd)
     {
-        return view('nerd.edit', $nerd);
+        return view('nerd.edit', compact('nerd'));
     }
 
     /**
@@ -78,7 +78,7 @@ class NerdController extends Controller
     {
         $nerd->update($request->validated());
 
-        return redirect()->action([self::class, 'show'], $nerd);
+        return redirect()->action([self::class, 'show'], compact('nerd'));
     }
 
     /**
