@@ -15,8 +15,8 @@ class CreateNerdsTable extends Migration
     {
         Schema::create('nerds', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->string('email', 255);
+            $table->string('name');
+            $table->string('email');
             $table->integer('nerd_level');
             $table->timestamps();
         });
