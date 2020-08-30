@@ -42,7 +42,7 @@ class NerdController extends Controller
 
         event(new UnknownEvent($nerd));
 
-//        return redirect('nerds');
+        return redirect('nerds');
     }
 
     /**

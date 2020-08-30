@@ -29,6 +29,6 @@ class UnknownListener
     {
 //        this will be triggered if event in controller is triggered
 //        dump($event->nerd);
-        return;
+//        return;
     }
 }
