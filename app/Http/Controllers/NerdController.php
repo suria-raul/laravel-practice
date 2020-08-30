@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Nerd;
 use App\Http\Requests\NerdRequest;
+use App\Providers\UnknownEvent;
 
 class NerdController extends Controller
 {
@@ -37,9 +38,11 @@ class NerdController extends Controller
      */
     public function store(NerdRequest $request)
     {
-        Nerd::create($request->validated());
+        $nerd = Nerd::create($request->validated());
 
-        return redirect('nerds');
+        event(new UnknownEvent($nerd));
+
+//        return redirect('nerds');
     }
 
     /**
