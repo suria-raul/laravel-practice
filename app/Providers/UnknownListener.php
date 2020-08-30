@@ -6,6 +6,7 @@ use App\Nerd;
 use App\Providers\UnknownEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Mail;
 
 class UnknownListener
 {
@@ -27,8 +28,6 @@ class UnknownListener
      */
     public function handle(UnknownEvent $event)
     {
-//        this will be triggered if event in controller is triggered
-//        dump($event->nerd);
-//        return;
+        Mail::to($event->nerd)->send();
     }
 }
